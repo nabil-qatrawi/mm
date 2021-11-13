@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\postController;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +14,6 @@ use App\Http\Controllers\postController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/index', [postController::class, 'index']);
-Route::get('/show/post/{id}' , [postController::class, 'show']);
-
+Route::get('/', [TaskController::class, 'index']);
+Route::post('/store', [TaskController::class, 'store']);
